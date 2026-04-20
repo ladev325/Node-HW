@@ -15,6 +15,6 @@
     "nodemon": "^3.1.14"
   },
   "dependencies": {
-    "express": "^5.2.1"
+    "telegraf": "^4.16.3"
   }
 }
