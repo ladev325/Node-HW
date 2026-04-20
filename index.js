@@ -1,7 +1,7 @@
 const { Telegraf } = require('telegraf')
 const { message } = require('telegraf/filters')
 
-const BOT_TOKEN = "8559939276:AAGystwCez5v2-F5BLumbbVScl6hnyCqPfE"
+const BOT_TOKEN = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 const bot = new Telegraf(BOT_TOKEN)
 
 let tmr = null;
