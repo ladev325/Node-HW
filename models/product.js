@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
-const category = require('./category');
-const Schema = mongoose.Schema;
+const { Schema, Types: { ObjectId } } = mongoose  // ObjectId не з js
 
 const productSchema = new Schema({
     name: {
@@ -15,7 +14,8 @@ const productSchema = new Schema({
     },
     categoryId: {
         type: ObjectId,
-        required: true
+        required: true,
+        ref: 'categories' // gets full category data in response
     },
     description: {
         type: String

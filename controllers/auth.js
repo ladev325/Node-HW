@@ -14,7 +14,7 @@ module.exports.login = async (req, res) => {
                 email: userdb.email,
                 userId: userdb._id
             }, keys.jwtSecret, { expiresIn: 60 * 60 })
-            res.status(200).json({ token: `Token: ${token}` })
+            res.status(200).json({ token })
         }
         else {
             res.status(401).json({ message: 'Invalid password!' })
