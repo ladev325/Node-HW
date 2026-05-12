@@ -6,17 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
     <div id="main">
         <div><input type="number" id="input1"></div>
         <div>
-            <button onclick="plus()">+</button>
-            <button onclick="minus()">-</button>
-            <button onclick="mult()">*</button>
-            <button onclick="div()">/</button>
-            <button onclick="mod()">%</button>
+            <button onclick="request('+')">+</button>
+            <button onclick="request('-')">-</button>
+            <button onclick="request('*')">*</button>
+            <button onclick="request('/')">/</button>
+            <button onclick="request('%')">%</button>
         </div>
         <div><input type="number" id="input2"></div>
         <div>
@@ -26,7 +27,6 @@
             <h1 id="answer">X</h1>
         </div>
     </div>
-    <script src="script.js"></script>
 </body>
 
 </html>

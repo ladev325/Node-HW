@@ -1,36 +1,30 @@
 const getValues = function () {
-    const val1 = parseFloat(document.getElementById('input1').value);
-    const val2 = parseFloat(document.getElementById('input2').value);
-    return { val1, val2 };
+    const n1 = parseFloat(document.getElementById('input1').value);
+    const n2 = parseFloat(document.getElementById('input2').value);
+    return { n1, n2 };
 };
 
-const plus = function () {
-    let { val1, val2 } = getValues();
-    document.getElementById("answer").innerText = val1 + val2;
-};
+const request = async function (operation) {
+    const { n1, n2 } = getValues();
+    try {
+        const req = await fetch('/api/calculus', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ n1, n2, operation })
+        });
 
-const minus = function () {
-    let { val1, val2 } = getValues();
-    document.getElementById("answer").innerText = val1 - val2;
-};
+        if (!req.ok) {
+            throw new Error(`Error: ${req.status}`);
+        }
 
-const mult = function () {
-    let { val1, val2 } = getValues();
-    document.getElementById("answer").innerText = val1 * val2;
-};
+        const data = await req.json();
+        document.getElementById("answer").innerText = data.answer;
 
-const div = function () {
-    let { val1, val2 } = getValues();
-    if (val2 === 0)
-        document.getElementById("answer").innerText = "Nope";
-    else
-        document.getElementById("answer").innerText = val1 / val2;
-};
+    } catch (error) {
+        document.getElementById("answer").innerText = "X";
+        console.log(error);
+    }
 
-const mod = function () {
-    let { val1, val2 } = getValues();
-    if (val2 === 0)
-        document.getElementById("answer").innerText = "Nope";
-    else
-        document.getElementById("answer").innerText = val1 % val2;
-};
+}
